@@ -1,6 +1,6 @@
 {
   "name": "@desmat/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
@@ -9,7 +9,9 @@
     "./sort": "./dist/sort/index.js"
   },
   "files": [
-    "src"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc"

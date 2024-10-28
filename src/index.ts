@@ -36,9 +36,9 @@ export function searchParamsToMap(searchParams: string): object {
     searchParams
       .split("&")
       .filter(Boolean)
-      .map((e) => e.split(","))
-      // .flat() // TODO check if this breaks anything
-      .map((e: any) => e.split("=")));
+      .map((e: string) => e.split(","))
+      .flat()
+      .map((e: string) => e.split("=")));
 }
 
 export function mapToSearchParams(m: object): string {
