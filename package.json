@@ -20,6 +20,7 @@
     "type": "git",
     "url": "https://github.com/desmat/utils.git"
   },
+  "homepage": "https://www.npmjs.com/package/@desmat/utils",
   "keywords": [
     "utility",
     "library",
