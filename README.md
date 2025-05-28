@@ -19,3 +19,14 @@ Or with Yarn:
 ```bash
 yarn add @yourusername/utils
 ```
+
+
+## Publishing
+
+To release a new version of this library:
+
+```bash
+npm run build
+npm version patch # or minor/major
+npm publish
+```
