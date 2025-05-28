@@ -133,3 +133,18 @@ export function shuffleArray(array: any[]) {
 
   return array;
 }
+
+export function sortBy(key: string, dir: 'asc' | 'desc' = 'asc', caseInsensitive = true) {
+  const applyCase = (v: any) => caseInsensitive && typeof (v) == "string"
+    ? v.toLowerCase()
+    : v;
+  const sortValue = dir == 'asc' ? 1 : -1;
+
+  return (a: any, b: any) => {
+    if (a && a[key] && b && b[key] && applyCase(a[key]) > applyCase(b[key])) {
+      return sortValue;
+    }
+
+    return -1 * sortValue;
+  }
+}
