@@ -134,17 +134,27 @@ export function shuffleArray(array: any[]) {
   return array;
 }
 
-export function sortBy(key: string, dir: 'asc' | 'desc' = 'asc', caseInsensitive = true) {
-  const applyCase = (v: any) => caseInsensitive && typeof (v) == "string"
+export function sortBy(key: string, dir: 'asc' | 'desc', caseInsensitive = true) {
+  const applyCase = (v: any) => caseInsensitive && typeof (v) === "string"
     ? v.toLowerCase()
     : v;
-  const sortValue = dir == 'asc' ? 1 : -1;
+  const sortValue = dir === 'asc' ? 1 : -1;
 
   return (a: any, b: any) => {
-    if (a && a[key] && b && b[key] && applyCase(a[key]) > applyCase(b[key])) {
+    let valA = a !== undefined && a[key] !== undefined && a[key];
+    let valB = b !== undefined && b[key] !== undefined && b[key];
+    const gotString = typeof (valA) === 'string' || typeof (valB) === 'string';
+
+    // default empty string or 0
+    if (valA === undefined) valA = gotString ? '' : 0;
+    if (valB === undefined) valB = gotString ? '' : 0;
+
+    if (applyCase(valA) > applyCase(valB)) {
       return sortValue;
+    } else if (applyCase(valA) < applyCase(valB)) {
+      return -1 * sortValue;
     }
 
-    return -1 * sortValue;
+    return 0;
   }
 }
